@@ -1,0 +1,26 @@
+server:
+  port: 8082
+
+dubbo:
+  application:
+    name: dubbo-server
+  registry:     #注册中心配置，用于配置连接注册中心相关信息
+    address: zookeeper://127.0.0.1:2181
+  protocol:     #协议配置，用于配置提供服务的协议信息，协议由提供方指定，消费方被动接受
+    name: dubbo
+    port: 20880
+  scan:         #扫描包
+    base-packages: dubbo.server.service.impl
+
+#项目名称
+spring:
+  application:
+    name: dubbo-server
+  #数据源配置
+  datasource:
+    url: jdbc:mysql://localhost:3306/spring_cloud_demo?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: 123456789
+#    driver-class-name: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
